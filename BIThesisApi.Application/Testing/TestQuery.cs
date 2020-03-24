@@ -20,7 +20,7 @@ namespace BIThesisApi.Application.Testing
             private async Task<IEnumerable<TestEntity>> GetTestData()
             {
                 var cumeDists = new List<TestEntity>();
-                var dr = BaseRepository.GetDataFromDb("USE AdventureWorks2016;  SELECT Department, LastName, Rate, CUME_DIST () OVER (PARTITION BY Department ORDER BY Rate) AS CumeDist,   PERCENT_RANK() OVER (PARTITION BY Department ORDER BY Rate ) AS PctRank  FROM HumanResources.vEmployeeDepartmentHistory AS edh  INNER JOIN HumanResources.EmployeePayHistory AS e    ON e.BusinessEntityID = edh.BusinessEntityID  WHERE Department IN (N'Document Control')   ORDER BY Department, Rate DESC;  ");
+                var dr = BaseRepository.GetDataFromDb("dbo.TestProcedure");
                 while (await dr.ReadAsync())
                 {
                     cumeDists.Add(new TestEntity
