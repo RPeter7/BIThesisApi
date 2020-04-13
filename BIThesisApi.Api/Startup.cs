@@ -35,7 +35,8 @@ namespace BIThesisApi.Api
             {
                 opt.AddPolicy("CorsPolicy", policy =>
                 {
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000").AllowCredentials();
+                    //policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:19000").AllowCredentials();
+                    policy.AllowAnyHeader();
                 });
             });
         }
@@ -48,7 +49,7 @@ namespace BIThesisApi.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
